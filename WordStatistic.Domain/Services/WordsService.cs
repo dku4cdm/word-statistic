@@ -18,7 +18,7 @@ namespace WordStatistic.Application.Services
                 Console.WriteLine("Operation was cancelled by token");
                 return Enumerable.Empty<Word>();
             }
-            return source.ConvertToResult();
+            return source.ToLower().ConvertToResult();
         }
     }
 }

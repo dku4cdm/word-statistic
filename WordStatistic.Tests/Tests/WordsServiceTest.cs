@@ -22,7 +22,7 @@ namespace WordStatistic.Tests.Tests
             
             var result = await _wordsService.Restruct(source);
 
-            Assert.Equal(4, result.Count());
+            Assert.Equal(3, result.Count());
         }
 
         [Fact]
@@ -54,7 +54,7 @@ namespace WordStatistic.Tests.Tests
 
             Assert.NotEmpty(result);
             var name = result.FirstOrDefault(x => x.Text == "name");
-            var bean = result.FirstOrDefault(x => x.Text == "Bean");
+            var bean = result.FirstOrDefault(x => x.Text == "bean");
             Assert.Equal(3, name.Count);
             Assert.Equal(1, bean.Count);
         }
