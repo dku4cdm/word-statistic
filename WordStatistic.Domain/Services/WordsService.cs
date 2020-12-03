@@ -11,14 +11,15 @@ namespace WordStatistic.Application.Services
 {
     public class WordsService : IWordsService
     {
-        public async Task<IEnumerable<Word>> Restruct(string source, CancellationToken token = default)
+        public async Task<IEnumerable<Word>> Restruct(string source, bool searchInWords = false, CancellationToken token = default)
         {
             if (token.IsCancellationRequested)
             {
                 Console.WriteLine("Operation was cancelled by token");
                 return Enumerable.Empty<Word>();
             }
-            return source.ToLower().ConvertToResult();
+
+            return source.ToLower().ConvertToResult(searchInWords);
         }
     }
 }

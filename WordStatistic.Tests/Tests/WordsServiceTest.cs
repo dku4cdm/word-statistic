@@ -58,5 +58,34 @@ namespace WordStatistic.Tests.Tests
             Assert.Equal(3, name.Count);
             Assert.Equal(1, bean.Count);
         }
+
+        [Fact]
+        public async Task RestructWithSearchInWordsStringTest()
+        {
+            var source = "testA test testA testB testABC";
+
+            var result = await _wordsService.Restruct(source, true);
+
+            Assert.NotEmpty(result);
+            var test = result.FirstOrDefault(x => x.Text == "test");
+            var testA = result.FirstOrDefault(x => x.Text == "testa");
+            Assert.Equal(5, test.Count);
+            Assert.Equal(3, testA.Count);
+        }
+
+
+        [Fact]
+        public async Task RestructWithoutSearchInWordsStringTest()
+        {
+            var source = "testA test testA testB testABC";
+
+            var result = await _wordsService.Restruct(source, false);
+
+            Assert.NotEmpty(result);
+            var test = result.FirstOrDefault(x => x.Text == "test");
+            var testA = result.FirstOrDefault(x => x.Text == "testa");
+            Assert.Equal(1, test.Count);
+            Assert.Equal(2, testA.Count);
+        }
     }
 }
