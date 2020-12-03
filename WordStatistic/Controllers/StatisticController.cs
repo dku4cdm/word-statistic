@@ -15,6 +15,12 @@ namespace WordStatistic.Controllers
             _repoService = repoService;
         }
 
+        /// <summary>
+        /// This API-method returns count of occurences the source 
+        /// which had entered before, during the API work.
+        /// </summary>
+        /// <param name="source">Input</param>
+        /// <returns>Number</returns>
         [HttpGet]
         public IActionResult GetOccurencesCount([FromQuery] string source)
         {

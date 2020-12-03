@@ -18,6 +18,11 @@ namespace WordStatistic.Controllers
             _repoService = repoService;
         }
 
+        /// <summary>
+        /// This API-method convert input string into the set of words and its occurences in the input string.
+        /// </summary>
+        /// <param name="source">Input</param>
+        /// <returns>JSON array</returns>
         [HttpGet]
         public async Task<IActionResult> GetCountResult([FromQuery] string source)
         {
